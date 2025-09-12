@@ -232,7 +232,7 @@ static esp_err_t audio_recorder_afe_monitor(recorder_sr_result_t *result, void *
     return ESP_OK;
 }
 
-static esp_err_t audio_recorder_mn_monitor(recorder_sr_result_t *result, void *user_ctx)
+[[maybe_unused]] static esp_err_t audio_recorder_mn_monitor(recorder_sr_result_t *result, void *user_ctx)
 {
     if (result->type >= 0) {
         return audio_recorder_send_msg(user_ctx, RECORDER_CMD_MN_DECT, (void *)result, sizeof(recorder_sr_result_t));
