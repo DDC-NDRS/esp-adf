@@ -258,17 +258,28 @@ typedef struct {
         .dma_desc_num = 3,                                                      \
         .dma_frame_num = 312,                                                   \
         .auto_clear = true,                                                     \
+        .auto_clear_before_cb = false,                                          \
+        .intr_priority = 0,                                                     \
     },                                                                          \
     .std_cfg = {                                                                \
         .clk_cfg  = I2S_STD_CLK_DEFAULT_CONFIG(rate),                           \
         .slot_cfg = I2S_STD_PHILIPS_SLOT_DEFAULT_ADF_CONFIG(bits, channel),     \
         .gpio_cfg = {                                                           \
+            .mclk = GPIO_NUM_NC,                                                \
+            .bclk = GPIO_NUM_NC,                                                \
+            .ws   = GPIO_NUM_NC,                                                \
+            .dout = GPIO_NUM_NC,                                                \
+            .din  = GPIO_NUM_NC,                                                \
             .invert_flags = {                                                   \
                 .mclk_inv = false,                                              \
                 .bclk_inv = false,                                              \
+                .ws_inv   = false,                                              \
             },                                                                  \
         },                                                                      \
     },                                                                          \
+    .pdm_rx_cfg = {},                                                           \
+    .pdm_tx_cfg = {},                                                           \
+    .tdm_cfg = {},                                                              \
     .use_alc = false,                                                           \
     .volume = 0,                                                                \
     .out_rb_size = I2S_STREAM_RINGBUFFER_SIZE,                                  \
